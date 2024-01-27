@@ -1,16 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Vuetify 3</title>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">'
+    <link rel="stylesheet" type="text/css" href="./style.css">'
 </head>
-
 <body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.js"></script>
+    <div class="container">
+        <div class="row mb-5">
+          <div class="col-sm d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg">
+              <a href="./assets/Story.txt" download="Story.txt" class="btn btn-primary">
+                Download Story File
+              </a>                       
+            </div>
+          </div>
+          <div class="col-sm d-flex justify-content-center align-items-center">
+            <!-- <div class="card shadow-lg"> -->
+              <img src="./assets/balloons.png" width="500" height="400">
+            <!-- </div> -->
+          </div>
+          <div class="col-sm d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg">
+              <video autoplay muted width="180" height="320" controls>
+                <source src="./assets/happi_kitten.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-sm d-flex justify-content-center align-items-center">
+            <!-- <div class="card shadow-lg"> -->
+              <h1>
+                <a href="" class="typewrite" data-period="2000" data-type='["English: Happy Birthday!", "French: Joyeux Anniversaire!", "Spanish: Feliz Cumpleaños!", "German: Frohes Geburtstag!", "Italian: Buon Compleanno!", "Dutch: Veel Geboorte Dag!", "Russian: С днем рождения!", "Portuguese: Feliz Aniversário!", "Greek: Ευτυχίστη Γέννιση!", "Danish: Lykkelig fødselsdag!", "Swedish: Grattis på födelsedagen!", "Norwegian: Gratulerer med fødselsdagen!", "Finnish: Onnellista syntymäpäivää!", "Polish: Świętego urodzin!", "Romanian: Fericit de ziua de naștere!", "Czech: Šťastný narozeniny!", "Hungarian: Születésnapot!","Irish: Sláinte agus fáilte!", "Welsh: Dydd calon i chi!", "Scottish: Many happy returns of the day!"]'>
+                  <span class="wrap"></span>
+                </a>
+              </h1>
+            <!-- </div> -->
+          </div>
+          <!-- <div class="col-sm d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                  Row 2, Column 3
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div class="row mb-5">
+          <div class="col-sm d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg">
+              <video autoplay muted width="500" height="280" controls>
+                <source src="./assets/happi_birthday.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="col-sm d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                  Row 3, Column 2
+              </div>
+            </div>
+          </div>
+          <div class="col-sm d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                  Row 3, Column 3
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
-
 </html>
