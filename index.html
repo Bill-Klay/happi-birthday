@@ -1,62 +1,69 @@
-<!DOCTYPE html>
 <html>
+
 <head>
     <title>Happy Birthday</title>
-    <link rel="shortcut icon" type="image/jpg" href="./assets/happy-birthday.png"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">'
-    <link rel="stylesheet" type="text/css" href="./style.css">'
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
-        <div class="row mb-5">
-          <div class="col-sm d-flex justify-content-center align-items-center">
-            <div class="card shadow-lg">
-              <a href="./assets/Story.txt" download="Story.txt" class="btn btn-primary">
-                Download Story File
-              </a>                       
+        <div class="row">
+            <div class="loader">
+                <button id="play">Start</button>
             </div>
-          </div>
-          <div class="col-sm d-flex justify-content-center align-items-center">
-            <!-- <div class="card shadow-lg"> -->
-              <img src="./assets/balloons.png" width="500" height="400">
-            <!-- </div> -->
-          </div>
-          <div class="col-sm d-flex justify-content-center align-items-center">
-            <div class="card shadow-lg">
-              <video width="180" height="320" controls>
-                <source src="./assets/happi_kitten.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-5">
-          <div class="col-sm d-flex justify-content-center align-items-center">
-              <h1>
-                <a href="" class="typewrite" data-period="2000" data-type='["English: Happy Birthday!", "French: Joyeux Anniversaire!", "Spanish: Feliz Cumpleaños!", "German: Frohes Geburtstag!", "Italian: Buon Compleanno!", "Dutch: Veel Geboorte Dag!", "Russian: С днем рождения!", "Portuguese: Feliz Aniversário!", "Greek: Ευτυχίστη Γέννιση!", "Danish: Lykkelig fødselsdag!", "Swedish: Grattis på födelsedagen!", "Norwegian: Gratulerer med fødselsdagen!", "Finnish: Onnellista syntymäpäivää!", "Polish: Świętego urodzin!", "Romanian: Fericit de ziua de naștere!", "Czech: Šťastný narozeniny!", "Hungarian: Születésnapot!","Irish: Sláinte agus fáilte!", "Welsh: Dydd calon i chi!", "Scottish: Many happy returns of the day!"]'>
-                  <span class="wrap"></span>
-                </a>
-              </h1>
-          </div>
-        </div>
-        <div class="row mb-5">
-          <div class="col-sm d-flex justify-content-center align-items-center">
-            <div class="card shadow-lg">
-              <video width="500" height="280" controls>
-                <source src="./assets/happi_birthday.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="col-sm d-flex justify-content-center align-items-center">
-            <div class="card shadow-lg">
-              <a class="btn btn-success" href="https://bill-klay.github.io/tell-me-why/">
-                Tell Me Why?
-              </a> 
-            </div>
-          </div>
         </div>
     </div>
-    <script src="./script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <audio class="song" controls loop>
+        <source src="music.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <canvas id="confetti"></canvas>
+    <div class="main">
+        <div class="container pt-5">
+            <div class="row">
+
+                <div class="col-12 col-xl-6 mx-auto">
+                    <img src="img/banner.png" alt="">
+                </div>
+
+                <div class="col-12  text-center">
+                    <div id="name" class="area">Nilufer</div>
+                </div>
+
+                <div class="col-12 text-center">
+                    <div class="type-wrap">
+                        <div id="typed-strings" class="typing">
+                            <h2>Happy Birthday <i id="nae">Nilufer</i></h2>
+                            <h2>Have a wonderful day</h2>
+                            <h2>Filled with joy and happiness</h2>
+                            <h2>Keep on keeping on</h2>
+                            <h2>All the best with your future career!</h2>
+                        </div>
+                        <span id="typed" style="white-space:pre;"></span>
+                    </div>
+                </div>
+
+                <div>
+                  <video width="180" height="320" controls>
+                    <source src="./img/happi_kitten.mp4" type="video/mp4">
+                  </video>
+                </div>
+
+                <div class="col-12 col-xl-3 cake">
+                    <img src="img/cake.gif" alt="">
+                </div>
+            </div>
+        </div>
+        <img src="img/Balloon-Border.png" width="100%" class="balloon-border">
+    </div>
 </body>
+<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/typed.min.js"></script>
+<script src="js/script.js"></script>
+
 </html>
