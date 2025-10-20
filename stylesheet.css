@@ -1,0 +1,451 @@
+:root {
+    --primary-color: #FF69B4; /* Hot Pink */
+    --secondary-color: #FFD700; /* Gold */
+    --background-color: #000; /* Updated for night sky */
+    --text-color: #333;
+    --card-bg: #ffffff;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    background-image: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+/* --- New Celestial Background Effects --- */
+
+.aurora-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.aurora {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.2) 0%, rgba(255, 0, 255, 0.2) 100%);
+    animation: aurora-flow 20s ease-in-out infinite alternate;
+}
+
+.aurora:nth-child(2) {
+    background: linear-gradient(-45deg, rgba(0, 255, 0, 0.2) 0%, rgba(0, 0, 255, 0.2) 100%);
+    animation-delay: -10s;
+}
+
+@keyframes aurora-flow {
+    from { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+    to { transform: translateX(0%) translateY(0%) rotate(360deg); }
+}
+
+.star {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    z-index: 2;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(0.9);
+        box-shadow: none;
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 2px rgba(255, 255, 255, 1);
+    }
+}
+
+.shooting-star {
+    position: fixed;
+    height: 2px;
+    background: linear-gradient(-45deg, #fff, rgba(255, 255, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px #fff);
+    animation: shooting-animation 3s ease-in-out infinite;
+    z-index: 3;
+}
+
+@keyframes shooting-animation {
+    0% {
+        transform: translateX(0) translateY(0) scaleX(1);
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(300px) translateY(300px) scaleX(3);
+        opacity: 0;
+    }
+}
+/* --- End of Celestial Background Effects --- */
+
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Initial overlay to get user interaction for music */
+#start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity 0.5s ease-out;
+}
+
+#start-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.start-button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: pulse 2s infinite;
+}
+
+.start-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Birthday Card Styling */
+.birthday-card {
+    width: 400px;
+    height: 450px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.birthday-card.open {
+    transform: rotateY(-180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.card-front {
+    background: var(--card-bg);
+    z-index: 2;
+    transform: rotateY(0deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Updated styles for the card front text */
+.vibrating-name {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: var(--primary-color);
+    letter-spacing: -2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: vibrate 2s ease-in-out infinite;
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.8), 0px 0px 8px rgba(255, 105, 180, 0.5);
+    margin: 0;
+    padding: 10px 0;
+}
+
+.card-front .subtitle {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    color: #555;
+    margin: -10px 0 10px 0;
+}
+
+.card-front p {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Banner image styling */
+.banner-img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.card-back {
+    background: var(--card-bg);
+    transform: rotateY(180deg);
+    padding: 30px;
+}
+
+.card-back h2 {
+    font-family: 'Pacifico', cursive;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+.card-back p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.0rem;
+    line-height: 1.8;
+    text-align: center;
+    min-height: 5.2em;
+    color: #555;
+    margin-top: 0;
+}
+
+/* New Balloon Animation */
+.balloon {
+    position: fixed;
+    width: 80px;
+    height: 100px;
+    opacity: 0.9;
+    z-index: 5;
+    bottom: -150px;
+    animation: riseUp 10s ease-in-out infinite;
+    pointer-events: auto;
+    transition: filter 0.3s ease;
+}
+
+.balloon:hover {
+    filter: drop-shadow(0 0 10px white) drop-shadow(0 0 5px rgba(255, 105, 180, 0.7));
+    animation: riseUp 10s ease-in-out infinite, jiggle 0.4s ease-in-out infinite;
+}
+
+@keyframes riseUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-110vh) rotate(15deg);
+    }
+}
+
+@keyframes vibrate {
+    0%, 7%, 100% { transform: rotateZ(0); }
+    15% { transform: rotateZ(-2deg); }
+    20% { transform: rotateZ(2deg); }
+    25% { transform: rotateZ(-2deg); }
+    30% { transform: rotateZ(2deg); }
+    35% { transform: rotateZ(0); }
+}
+
+@keyframes jiggle {
+    0%, 100% { transform: translateX(-1px) rotate(-2deg); }
+    50% { transform: translateX(1px) rotate(2deg); }
+}
+
+/* Cursor for typewriter effect */
+.typing-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.2rem;
+    background-color: var(--text-color);
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { background-color: transparent }
+    50% { background-color: var(--text-color); }
+}
+
+/* Modal Trigger Button */
+.modal-trigger-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 50;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-trigger-button:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 550px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.4s ease-in-out;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h2 {
+    font-family: 'Pacifico', cursive;
+    color: var(--primary-color);
+    font-size: 2.0rem;
+    margin-top: 0;
+}
+
+.modal-content p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.0rem;
+    line-height: 1.9;
+    color: #666;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .birthday-card {
+        width: 70vw;
+        height: 40vh;
+    }
+
+    .vibrating-name {
+        font-size: 2rem;
+    }
+
+    .card-front .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .card-back h2 {
+        font-size: 1.3rem;
+    }
+
+    .card-back p {
+        font-size: 0.8rem;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .modal-content p {
+        font-size: 1.0rem;
+    }
+
+    .modal-trigger-button {
+        bottom: 5vh; /* Repositioned vertically */
+        left: 50%; /* Centered horizontally */
+        transform: translateX(-50%); /* Applied precise centering */
+        right: auto; /* Cleared the right property */
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .start-button {
+        font-size: 1.2rem;
+    }
+}

@@ -1,63 +1,69 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Happy Birthday</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Happy Birthday!</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheet.css">
 </head>
-
 <body>
+    
+    <!-- Celestial Background --><div class="aurora-container">
+        <div class="aurora"></div>
+        <div class="aurora"></div>
+    </div>
+    <div id="stars-container"></div>
+    <div id="shooting-stars-container"></div>
+
+    <!-- Balloon container will be populated by JS --><div id="balloon-container"></div>
+
     <div class="container">
-        <div class="row">
-            <div class="loader">
-                <button id="play">Start</button>
+        
+        <!-- Start Overlay --><div id="start-overlay">
+            <button class="start-button">Click Me!</button>
+        </div>
+        <!-- The Card --><div class="birthday-card" id="birthdayCard">
+            <div class="card-face card-front">
+                <!-- Banner Image Added Here --><img src="./content-files/banner.png" alt="Happy Birthday Banner" class="banner-img">
+                <h1 id="cardFrontName" class="vibrating-name"></h1>
+                <p class="subtitle">A surprise for you!</p>
+                <p>(Click to open)</p>
+            </div>
+            <div class="card-face card-back">
+                <h2>Happy Birthday, <span id="namePlaceholder">[Name]</span>!</h2>
+                <p id="wish-line-1"></p>
+                <p id="wish-line-2"></p>
             </div>
         </div>
     </div>
-    <audio class="song" controls loop>
-        <source src="music.mp3">
-        </source>
-        Your browser isn't invited for super fun audio time.
-    </audio>
-    <canvas id="confetti"></canvas>
-    <div class="main">
-        <div class="container pt-5">
-            <div class="row">
+    
+    <!-- Modal Trigger Button --><button id="open-modal-btn" class="modal-trigger-button" title="Read more wishes!">A Special Note</button>
 
-                <div class="col-12 col-xl-6 mx-auto">
-                    <img src="img/banner.png" alt="">
-                </div>
-
-                <div class="col-12  text-center">
-                    <div id="name" class="area">Nilufer</div>
-                </div>
-
-                <div class="col-12 text-center">
-                    <div class="type-wrap">
-                        <div id="typed-strings" class="typing">
-                            <h2>Happy Birthday <i id="nae">Nilufer</i></h2>
-                            <h2>Have a wonderful day</h2>
-                            <h2>Filled with joy and happiness</h2>
-                            <h2>Keep on keeping on</h2>
-                            <h2>All the best with your future career!</h2>
-                        </div>
-                        <span id="typed" style="white-space:pre;"></span>
-                    </div>
-                </div>           
-
-                <div class="col-12 col-xl-3 cake">
-                    <img src="img/cake.gif" alt="">
-                </div>
-            </div>
+    <!-- Special Note Modal --><div id="special-note-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal-btn">&times;</span>
+            <h2>A Little Extra...</h2>
+            <p>Thank you for all the great time we spent together, in front of a screen, working or sending memes.
+            This year I wanted to make your birthday gift a bit special. So, instead of just spending some money
+            I wanted to gift you something more, my time. I've been working on creating, designing, and writing all this.
+            I tried to emulate the aurora lights on the celestial night sky, something I think would suit you. 
+            I also bought and setup this domain (arshiarauf.me) for you, its your's now. Feel free to use it for whatever 
+            purpose you may wish and make it even more special (like a portfolio website). This piece of art now exists on 
+            the internet. Whilst hope is a sad thing, I’ll always have faith because faithless is he that says farewell when the road darkens.
+            Even though you might ignore me, and one day I just might not be there, but what I do hope is that this exists 
+            until the end of time as a proof to what we went through and achieved together. There is a small margin between courage and stupidity.
+            Sometimes courage is knowing there could be trouble, but taking the chance anyway, and that is called inner strength.
+            Everyone is fighting their own battles and I wish you all the best for yours!</p>
         </div>
-        <img src="img/Balloon-Border.png" width="100%" class="balloon-border">
     </div>
+
+    <!-- Audio element for background music --><audio id="birthday-music" loop></audio>
+    <script src="./script.js"></script>
 </body>
-<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/typed.min.js"></script>
-<script src="js/script.js"></script>
-
 </html>
+
+
