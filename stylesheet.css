@@ -6,11 +6,6 @@
     --card-bg: #ffffff;
 }
 
-html {
-    height: 100%;
-    overflow: hidden;
-}
-
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
