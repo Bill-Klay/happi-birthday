@@ -21,7 +21,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     overflow: hidden;
     perspective: 1000px;
 }
@@ -231,14 +231,14 @@ body {
 .banner-img {
     max-width: 80%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 }
 
 .card-back {
     background: var(--card-bg);
     transform: rotateY(180deg);
-    padding: 30px;
+    padding: 25px;
 }
 
 .card-back h2 {
@@ -266,7 +266,7 @@ body {
     height: 100px;
     opacity: 0.9;
     z-index: 5;
-    bottom: -150px;
+    bottom: -20px;
     animation: riseUp 10s ease-in-out infinite;
     pointer-events: auto;
     transition: filter 0.3s ease;
@@ -437,10 +437,10 @@ body {
     }
 
     .modal-trigger-button {
-        bottom: 5vh; /* Repositioned vertically */
-        left: 50%; /* Centered horizontally */
-        transform: translateX(-50%); /* Applied precise centering */
-        right: auto; /* Cleared the right property */
+        bottom: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
         padding: 10px 20px;
         font-size: 1rem;
     }
