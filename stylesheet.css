@@ -333,7 +333,7 @@ body {
     box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
 }
 
-/* Modal Styles */
+/* --- Modal Styles (Corrected Architecture) --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -355,20 +355,31 @@ body {
     pointer-events: auto;
 }
 
+.modal-overlay.visible .modal-content {
+    transform: scale(1);
+}
+
+/* This is the outer frame of the modal. It doesn't scroll. */
 .modal-content {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 20px;
     width: 90%;
-    max-width: 550px;
+    max-width: 600px;
     text-align: center;
     position: relative;
     transform: scale(0.9);
     transition: transform 0.4s ease-in-out;
+    max-height: 85vh; /* Constrains the overall modal height */
+    display: flex; /* Using flexbox for robust internal layout */
+    flex-direction: column;
 }
 
-.modal-overlay.visible .modal-content {
-    transform: scale(1);
+/* This new inner container holds the text and is scrollable */
+.modal-scrollable-content {
+    overflow-y: auto; /* Enables vertical scrolling on this element only */
+    padding-right: 15px; /* Creates space for the scrollbar */
+    margin-right: -15px; /* Pulls the element back to maintain text centering */
 }
 
 .modal-content h2 {
@@ -380,11 +391,14 @@ body {
 
 .modal-content p {
     font-family: 'Pacifico', cursive;
-    font-size: 1.0rem;
-    line-height: 1.9;
+    font-size: 0.9rem;
+    line-height: 1.8;
     color: #666;
+    text-align: left; /* Justified text is easier to read in long paragraphs */
+    padding-bottom: 15px; /* Some space at the very end */
 }
 
+/* The close button is a child of the non-scrolling frame */
 .close-modal {
     position: absolute;
     top: 15px;
@@ -394,6 +408,7 @@ body {
     color: #888;
     cursor: pointer;
     transition: color 0.2s;
+    z-index: 10; /* Ensures it's above the scrollable content */
 }
 
 .close-modal:hover {
